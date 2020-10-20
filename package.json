@@ -1,0 +1,33 @@
+{
+  "name": "labx2csv",
+  "version": "1.0.0",
+  "description": "Converts .labx files to .csv",
+  "main": "main.js",
+  "scripts": {
+    "browserify": "browserify web.js -p tinyify -o docs/web.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "labx2csv": "cli.js"
+  },
+  "dependencies": {
+    "csv-stringify": "^5.5.1",
+    "xml-js": "^1.6.11",
+    "jquery": "^3.5.1",
+    "file-saver": "^2.0.2"
+  },
+  "devDependencies": {
+    "browserify": "^17.0.0",
+    "tinyify": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/appgurueu/labx2csv.git"
+  },
+  "author": "appgurueu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/appgurueu/labx2csv/issues"
+  },
+  "homepage": "https://github.com/appgurueu/labx2csv#readme"
+}

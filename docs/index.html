@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+		<!-- Bootstrap CSS -->
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+			integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+			crossorigin="anonymous"
+		/>
+
+		<title>Labx to CSV</title>
+	</head>
+
+	<body class="container">
+		<h1>Labx to CSV Converter</h1>
+		<p class="lead">Select a CASSY <code>.labx</code> file and extract the measurement series as CSV (comma-separated values)</p>
+		<ul class="mb-4">
+			<li>Choose file: Select a <code>.labx</code> file</li>
+			<li>Transpose: If checked, values are in rows instead of columns</li>
+			<li>Spacing: Free cells between measurement series</li>
+			<li>Download: Click to download CSV as processing has finished</li>
+		</ul>
+		<form>
+			<div class="container mb-3">
+				<div class="row align-items-center">
+					<div class="col-3">
+						<div class="custom-file">
+							<input type="file" class="custom-file-input" id="labx" aria-describedby="Labx file" />
+							<label class="custom-file-label" for="labx" style="max-width: 15em">Choose file</label>
+						</div>
+					</div>
+					<div class="col-2 mr-4">
+						<input id="spacing" type="number" min="0" step="1" value="2" max="10" style="max-width: 4em" />
+						<label for="spacing">Spacing</label>
+					</div>
+					<div class="col-2 ml-5">
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="transpose" checked />
+							<label class="custom-control-label" for="transpose">Transpose</label>
+						</div>
+					</div>
+					<div class="col-3">
+						<button id="download" class="btn btn-primary" type="button" disabled
+							>
+							<span id="action">Process</span>
+							<span id="processing" style="display: none"
+								><span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+								<span class="sr-only">Processing...</span></span
+							></a
+						>
+					</div>
+				</div>
+			</div>
+		</form>
+		<!-- TODO fix double inclusion of jQuery -->
+		<script src="web.js"></script>
+		<script
+			src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+			crossorigin="anonymous"
+		></script>
+
+		<footer>
+			<hr />
+			Powered by <a href="https://github.com/appgurueu/labx2csv"><code>labx2csv</code></a> by
+			<a href="https://github.com/appgurueu"><code>appgurueu</code></a>
+		</footer>
+	</body>
+</html>
