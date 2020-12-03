@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+const fs = require("fs")
 const { convert, filename } = require("./index.js")
 
 const arguments = process.argv.slice(2)

@@ -1,12 +1,14 @@
 const { xml2js } = require("xml-js")
 const stringify = require("csv-stringify")
 
+const _asArray = (parent, tagname) => Array.isArray(parent[tagname]) ? parent[tagname] : [parent[tagname]]
+
 function convert(params) {
 	const { input, callback, spacing, transpose } = params
-	const channels = xml2js(input, { compact: true, ignoreComment: true }).cassylab.allchannels.channels
+	const channels = _asArray(xml2js(input, { compact: true, ignoreComment: true }).cassylab.allchannels, "channels")
 	let rows = []
 	for (const the_channels of channels) {
-		for (const channel of the_channels.channel) {
+		for (const channel of _asArray(the_channels, "channel")) {
 			if (channel.quantity._text === "Index" || channel.values._attributes.count === "0") continue
 			rows.push([channel.quantity._text + " [" + channel.unit._text + "]", ...channel.values.value.map(x => parseFloat(x._text))])
 		}
@@ -22,7 +24,7 @@ function convert(params) {
 				}
 				new_rows[j].push(rows[i][j])
 			}
-			let second_row = rows[i + rows.length / 2]
+			let second_row = rows[i + Math.floor(rows.length / 2)]
 			for (let j = 0; j < second_row.length; j++) {
 				new_rows[j].push(second_row[j])
 			}
